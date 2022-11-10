@@ -13,9 +13,9 @@ import inquirer from 'inquirer';
 
 
 ///////////////////////////////////////////////
-const getChoice = async () =>
-    await inquirer
-        .prompt([
+const getChoice = async () => {   //The braces can only be omitted if the function directly returns an expression. 
+    return await inquirer       // If the body has additional lines of processing, the braces are required — and so is the return keyword.
+        .prompt([               //  Arrow functions cannot guess what or when you want to return.
             {
                 type: "input",
                 name: "dish",
@@ -39,6 +39,7 @@ const getChoice = async () =>
                 console.log(error)
             }
         })
+}
 
 const selections = await getChoice();
 const { dish, website } = selections;
